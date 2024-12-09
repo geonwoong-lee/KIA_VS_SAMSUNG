@@ -28,19 +28,19 @@ This project simulates the outcomes of a hypothetical Korean Series between the 
 ## 📈 Head-to-Head Visualization
 
 ### **1. Yearly Wins**
-![Yearly Wins](yearly_wins.jpg)
+![Yearly Wins](imgs%2yearly_wins.jpg)
 
 - A graph comparing yearly win counts for **KIA** and **Samsung**.
   - Since 2023, KIA's win count has increased significantly, while Samsung has been on a declining trend.
 
 ### **2. Yearly Batting Averages**
-![Yearly Batting Average](yearly_avg.jpg)
+![Yearly Batting Average](imgs%2yearly_avg.jpg)
 
 - A comparison of average batting averages for both teams, including home and away games.
   - KIA's batting average saw a sharp rise in 2024.
 
 ### **3. Yearly ERA (Earned Run Average)**
-![Yearly ERA](yearly_era.jpg)
+![Yearly ERA](imgs%2yearly_era.jpg)
 
 - A graph comparing the teams' yearly ERAs.
   - KIA's ERA has consistently improved, showcasing better pitching, while Samsung's ERA has worsened.
