@@ -110,40 +110,30 @@ for game_number in range(1, 8):
 korea_series_df_updated = pd.DataFrame(korea_series_games_updated)
 final_winner = "KIA Tigers" if kia_wins > samsung_wins else "Samsung Lions"
 
-def show_results_window(df, winner):
-    root = Tk()
-    root.title("2024 Korean Series Prediction Results By Adding KS Variability")
-    root.geometry("1000x400")
-
-    if(winner == "KIA Tigers"):
-        Label(root, text=f"🎉 Congratulations on {winner}'s 12th victory! 🎉", font=("Arial", 16, "bold"), fg="blue").pack(pady=10)
+def show_results_console(df, winner):
+    print("\n=== Korean Series Prediction Results ===")
+    if winner == "KIA Tigers":
+        print(f"🎉 Congratulations on {winner}'s 12th victory! 🎉")
     else:
-        Label(root, text=f"🎉 Congratulations on {winner}'s 9th victory! 🎉", font=("Arial", 16, "bold"), fg="blue").pack(pady=10)
+        print(f"🎉 Congratulations on {winner}'s 9th victory! 🎉")
 
-    text = Text(root, wrap="none", font=("Courier", 11))
-    text.pack(fill="both", expand=True)
-
-    header = "{:<5}{:<10}{:<10}{:<10}{:<10}{:<10}{:<8}{:<8}{:<8}{:<8}{:<10}\n".format(
+    print("\n{:<5}{:<10}{:<10}{:<10}{:<10}{:<10}{:<8}{:<8}{:<8}{:<8}{:<10}".format(
         "Game", "Location", "Home", "Away",
         "H-Score", "A-Score", "H-AVG", "A-AVG",
         "H-ERA", "A-ERA", "Winner"
-    )
-    text.insert(END, header)
-    text.insert(END, "-" * 85 + "\n")
+    ))
+    print("-" * 85)
 
     for _, row in df.iterrows():
-        line = "{:<5}{:<10}{:<10}{:<10}{:<10}{:<10}{:<8.3f}{:<8.3f}{:<8.2f}{:<8.2f}{:<10}\n".format(
+        print("{:<5}{:<10}{:<10}{:<10}{:<10}{:<10}{:<8.3f}{:<8.3f}{:<8.2f}{:<8.2f}{:<10}".format(
             row['Game Number'], row['Location'], row['Home Team'], row['Away Team'],
             row['Home Team Score'], row['Away Team Score'],
             row['Home Team AVG'], row['Away Team AVG'],
             row['Home Team ERA'], row['Away Team ERA'],
             row['Winning Team']
-        )
-        text.insert(END, line)
+        ))
 
-    root.mainloop()
-
-show_results_window(korea_series_df_updated, final_winner)
+show_results_console(korea_series_df_updated, final_winner)
 
 # Insert Actual Game Result
 actual_results = {
