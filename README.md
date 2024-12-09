@@ -16,6 +16,9 @@ This project simulates the outcomes of a hypothetical Korean Series between the 
 
 ---
 
+# To use this source in github codespace :
+```pip install openpyxl```
+
 ## 📊 Project Overview
 ![koreanseries.png](imgs%2Fkoreanseries.png)
 
