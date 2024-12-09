@@ -101,31 +101,26 @@ for game_number in range(1, 8):
 korea_series_df_updated = pd.DataFrame(korea_series_games_updated)
 final_winner = "KIA Tigers" if kia_wins > samsung_wins else "Samsung Lions"
 
-def show_results_window(df, winner):
-    root = Tk()
-    root.title("2024 Korean Series Prediction Results")
-    root.geometry("1000x500")
+def show_results_console(df, winner):
+    print("\n=== 2024 Korean Series Prediction Results ===")
+    print(f"🎉 Congratulations to {winner}! 🎉\n")
 
-    Label(root, text=f"🎉 Congratulations to {winner}! 🎉", font=("Arial", 16, "bold"), fg="blue").pack(pady=10)
-
-    text = Text(root, wrap="none", font=("Courier", 11))
-    text.pack(fill="both", expand=True)
-
-    header = "{:<5}{:<10}{:<10}{:<10}{:<12}{:<12}{:<12}{:<12}\n".format(
+    # Header
+    header = "{:<5}{:<10}{:<10}{:<10}{:<12}{:<12}{:<12}{:<12}".format(
         "Game", "Location", "Home", "Away",
         "H-Score", "A-Score", "Score Diff", "Winner"
     )
-    text.insert(END, header)
-    text.insert(END, "-" * 80 + "\n")
+    print(header)
+    print("-" * len(header))
 
+    # Rows
     for _, row in df.iterrows():
-        line = "{:<5}{:<10}{:<10}{:<10}{:<12.1f}{:<12.1f}{:<12.1f}{:<12}\n".format(
+        line = "{:<5}{:<10}{:<10}{:<10}{:<12.1f}{:<12.1f}{:<12.1f}{:<12}".format(
             row['Game Number'], row['Location'], row['Home Team'], row['Away Team'],
             row['Predicted Home Score'], row['Predicted Away Score'],
             row['Score Difference'], row['Winning Team']
         )
-        text.insert(END, line)
+        print(line)
 
-    root.mainloop()
 
-show_results_window(korea_series_df_updated, final_winner)
+show_results_console(korea_series_df_updated, final_winner)
